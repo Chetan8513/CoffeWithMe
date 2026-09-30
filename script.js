@@ -1,7 +1,9 @@
 const HER_NAME = "Tejashri";
 const MY_NAME = "Your Name";
-const MY_WHATSAPP_NUMBER = "91XXXXXXXXXX";
+const MY_WHATSAPP_NUMBER = "919922288760";
 const INVITE_TEXT = "Hi, I opened your surprise! I picked";
+const YES_RESPONSE_TEXT = "Hi Chetan, yes 😊 Let’s meet sometime. A coffee or a quick meet sounds good to me.";
+const NO_RESPONSE_TEXT = "Hi Chetan, sorry, not possible for me right now. I really appreciate the gesture, and I hope you understand. Thank you for being respectful about it.";
 const MAX_DODGES = 3;
 
 const screenMap = {
@@ -368,6 +370,13 @@ function setupMainActions() {
     showScreen("yes");
   });
 
+  const yesFlowBtn = document.getElementById("yesFlowBtn");
+  if (yesFlowBtn) {
+    yesFlowBtn.addEventListener("click", () => {
+      openWhatsAppChat(YES_RESPONSE_TEXT);
+    });
+  }
+
   replayBtn.addEventListener("click", () => {
     playSuccessChime();
     noDodgeCount = 0;
@@ -382,6 +391,13 @@ function setupMainActions() {
     setupTypewriter();
     resizeScratchCard();
   });
+
+  const noChatBtn = document.getElementById("noChatBtn");
+  if (noChatBtn) {
+    noChatBtn.addEventListener("click", () => {
+      openWhatsAppChat(NO_RESPONSE_TEXT);
+    });
+  }
 
   muteToggle.addEventListener("click", toggleSound);
 }
@@ -402,6 +418,12 @@ function setupPlanPicker() {
     const url = `https://wa.me/${cleanNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank", "noopener,noreferrer");
   });
+}
+
+function openWhatsAppChat(message) {
+  const cleanNumber = MY_WHATSAPP_NUMBER.replace(/\D/g, "");
+  const url = `https://wa.me/${cleanNumber}?text=${encodeURIComponent(message)}`;
+  window.open(url, "_blank", "noopener,noreferrer");
 }
 
 function launchFireworkBurst(x, y, color) {

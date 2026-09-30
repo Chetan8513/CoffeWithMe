@@ -466,6 +466,17 @@ canvas {
   line-height: 1.6;
 }
 
+.no-screen-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.no-screen-actions .primary-btn,
+.no-screen-actions .ghost-btn {
+  width: 100%;
+}
+
 @media (max-width: 360px) {
   .plan-picker {
     grid-template-columns: 1fr;
