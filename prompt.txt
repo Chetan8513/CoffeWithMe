@@ -1,0 +1,38 @@
+You are a senior front-end developer and UI/UX designer. Build a single-page, mobile-first romantic-but-playful invitation web app using ONLY plain HTML, CSS and vanilla JavaScript (no frameworks, no build tools, no external images). It must work when deployed on GitHub Pages. Deliver 3 files: index.html, style.css, script.js.
+
+## Purpose
+A software developer named [YOUR NAME] is inviting a girl named Tejashri to meet for the first time in Pune (coffee / cafe / restaurant / mall). She will open this on her phone. The goal is to make her smile and feel special, NOT to pressure her. Tone: sweet, funny, confident, respectful. Never desperate.
+
+## Story flow (screens, with smooth fade/slide transitions)
+1. Intro screen: dark-pastel animated gradient background with floating soft hearts/sparkles. Typing-effect text: "Hey Tejashri 👋", then "Someone made something small for you…", then a button "Open 🎁".
+2. Scratch card screen: a canvas scratch card (silver shimmer overlay) with the text "Scratch here ✨". She scratches with her finger (touchstart/touchmove/touchend plus mouse fallback). Use a light vibration (navigator.vibrate) while scratching. When about 55% is scratched, auto-reveal the whole card with a little sparkle burst.
+3. Reveal screen: the card reveals "Coffee with me? ☕" with a subtitle "(Just a small first meet in Pune, no pressure 😄)". Below that, two buttons:
+   - Big glowing "Yes 💖" button (thumb-friendly, min height 56px, rounded).
+   - Smaller "No 🙈" button with a PLAYFUL DODGE (see below).
+4. Yes celebration screen (see below).
+5. Graceful No screen (see below).
+
+## The No button (important: fun, not forcing)
+- Each time she taps or moves toward "No", it jumps to a random nearby position on screen (keep it always inside the viewport and always tappable), and shrinks slightly.
+- Show a funny message each time, for example: "Are you sure? 🥺", "Think again 😄", "Last chance 🙈".
+- Only dodge a maximum of 3 times. On the 4th tap, the button stays still and works normally.
+- Then show the Graceful No screen: "Totally okay 😊 No pressure at all. Thanks for playing along! Maybe another time?" with a small "Replay 🔁" button. No guilt-tripping, no sad manipulative text.
+- The Yes button grows very slightly after each dodge, but never covers the screen.
+
+## Yes celebration (make it spectacular)
+- Full-screen canvas FIREWORKS: multiple colorful bursts with particle physics (gravity, fade, trails), launching from the bottom and exploding at random heights, running for about 8 seconds with a continuing gentle loop.
+- Plus confetti rain and floating hearts.
+- Vibrate pattern via navigator.vibrate([100, 50, 100, 50, 300]).
+- Text with a bounce/scale animation: "Yayyy! 🎉 She said YES!" then "Tejashri, you just made my day 💖".
+- Then show a friendly card: "Let's pick a plan:" with 3 tappable options (☕ Cafe, 🍰 Dessert, 🛍️ Mall walk). After she picks, show "Great choice! Message me and we'll fix the time 😊" with a button that opens WhatsApp: https://wa.me/91[YOUR_NUMBER]?text=[URL-encoded message: "Hi, I opened your surprise! I picked [option] 😊"].
+- Optional soft sound: generate a short pop/chime using the Web Audio API only after a user tap (no audio files), with a mute toggle.
+
+## Design requirements
+- Mobile-first (test at 360x640 to 430x932), use dvh units, safe-area padding, no horizontal scroll, disable text selection and pull-to-refresh while scratching (touch-action: none on canvas).
+- Modern look: glassmorphism cards, soft gradient palette (deep purple, pink, warm peach), rounded corners, large readable fonts (Google Fonts optional, with system fallback), smooth easing, subtle button glow and tap ripple.
+- Respect prefers-reduced-motion by toning down animations.
+- 60fps: use requestAnimationFrame, clean up canvas loops when screens change, handle window resize and devicePixelRatio for sharp canvas.
+- Clean, commented, well-structured code with configurable constants at the top of script.js: HER_NAME, MY_NAME, MY_WHATSAPP_NUMBER, INVITE_TEXT, MAX_DODGES.
+
+## Output
+Give the complete code for all three files, plus short steps to deploy on GitHub Pages and how to test on my phone.

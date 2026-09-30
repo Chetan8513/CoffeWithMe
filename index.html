@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#140d22" />
+    <title>Tejashri, coffee with me?</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="background-blur blur-one"></div>
+    <div class="background-blur blur-two"></div>
+
+    <div class="app-shell">
+      <section id="intro-screen" class="screen active" aria-live="polite">
+        <div class="floating-hearts" id="floatingHearts"></div>
+        <div class="intro-panel glass-card">
+          <p class="eyebrow">A tiny plan for Pune</p>
+          <h1 id="typingText"></h1>
+          <button id="openGiftBtn" class="primary-btn" type="button">
+            Open the note ✨
+          </button>
+        </div>
+      </section>
+
+      <section id="scratch-screen" class="screen">
+        <div class="card-wrap">
+          <div class="scratch-card" id="scratchCard">
+            <div class="card-poster">
+              <span class="poster-badge">For Tejashri</span>
+              <h2>Pune?</h2>
+              <p>coffee, maybe</p>
+            </div>
+            <canvas id="scratchCanvas" aria-label="Scratch card"></canvas>
+            <div class="scratch-hint">Scratch here ✨</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="reveal-screen" class="screen">
+        <div class="reveal-card glass-card">
+          <h2>Quick coffee in Pune? ☕</h2>
+          <p class="reveal-sub">
+            (A small first meet, easy vibes, no pressure 😄)
+          </p>
+          <p class="reveal-note">A coffee, dessert, or a slow walk around town — whichever feels easy.</p>
+
+          <div class="reveal-actions" id="revealActions">
+            <button id="yesBtn" class="primary-btn yes-btn" type="button">
+              Yes 💖
+            </button>
+            <button id="noBtn" class="ghost-btn no-btn" type="button">
+              No 🙈
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="yes-screen" class="screen">
+        <canvas id="fireworksCanvas" aria-hidden="true"></canvas>
+        <button id="muteToggle" class="mute-btn" type="button" aria-label="Toggle sound">
+          🔊
+        </button>
+
+        <div class="celebration-card glass-card">
+          <h2 id="celebrationTitle">Yayyy! 🎉 Nice choice 😄</h2>
+          <p>I was thinking a casual first meet in Pune would be a good one 😄</p>
+          <p class="plan-prompt">Pick the vibe that sounds best:</p>
+
+          <div id="planPicker" class="plan-picker">
+            <button class="plan-option" type="button" data-option="☕ Coffee">
+              ☕ Coffee
+            </button>
+            <button class="plan-option" type="button" data-option="🧁 Dessert">
+              🧁 Dessert
+            </button>
+            <button class="plan-option" type="button" data-option="🌆 Slow walk">
+              🌆 Slow walk
+            </button>
+          </div>
+
+          <div id="planResult" class="plan-result hidden">
+            <p>Nice choice! Let’s keep it easy and pick a time 😊</p>
+            <button id="whatsappBtn" class="primary-btn" type="button">
+              Message on WhatsApp 💬
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="no-screen" class="screen">
+        <div class="grace-card glass-card">
+          <h2>Totally okay 😊</h2>
+          <p>
+            No pressure at all. Thanks for playing along! Maybe another time?
+          </p>
+          <button id="replayBtn" class="primary-btn" type="button">
+            Replay 🔁
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
